@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=HDHomeRun Viewer
+Comment=Browse and watch HDHomeRun channels in mpv
+Exec=@BIN@
+Icon=video-television
+Terminal=false
+Categories=AudioVideo;Video;TV;
