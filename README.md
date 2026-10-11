@@ -4,6 +4,14 @@ A small Linux desktop app for HDHomeRun tuners. SiliconDust's own viewer apps
 don't cover Linux, so this fills the gap with a channel list, a now/next guide,
 and mpv for playback.
 
+- Channel list with **what's on now and next**, in plain terms ("30 mins left", "in 45 mins")
+- **Change channel without restarting the player**: double-click or press Enter in the list,
+  or press Up/Down (also PgUp/PgDn) inside the mpv window
+- On-screen display of channel name, now and next whenever the channel changes
+- Frees the tuner when you stop or close; works with any number of tuners
+- Guide cached for 24 hours; the guide is optional and the app works without it
+- Pure Python standard library plus `mpv`: no pip packages
+
 ## Requirements
 
 ```
@@ -15,8 +23,8 @@ An HDHomeRun on the same network (tested on a Connect Duo, HDHR5-2DT, on Debian 
 ## Install
 
 ```
-git clone Linux-player-for-HdHomeRun
-cd Linux-player-for-HdHomeRun
+git clone <this repo>
+cd hdhr-viewer
 ./install.sh
 ```
 
@@ -44,10 +52,12 @@ launch it without a terminal. Or just run `./hdhr_viewer.py`.
 
 With `xmltv_source` blank, the app reads the tuner's `DeviceAuth` and requests SiliconDust's
 XMLTV guide. Their documentation says a paid DVR guide subscription is required. In practice
-it returned data for my Connect Duo, in Australia, without one. But that may differ by
+it returned data for the author's Australian Connect Duo without one, but that may differ by
 device and region and may change. If the guide is unavailable, the channel list still works,
 and you can point `xmltv_source` at any XMLTV feed instead. Channels are matched by name,
 then by number.
+
+Please don't hammer the guide endpoint: the cache is there to keep it to about one fetch a day.
 
 ## Files
 
@@ -69,4 +79,4 @@ then by number.
 
 ## Licence
 
-GNU GPL V3
+MIT
